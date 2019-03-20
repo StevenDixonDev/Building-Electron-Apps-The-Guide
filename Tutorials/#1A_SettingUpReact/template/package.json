@@ -1,0 +1,30 @@
+{
+    "name": "react-electron",
+    "version": "0.0.0",
+    "private": true,
+    "homepage": ".",
+    "description": "A React-Electron Template",
+    "Author": "",
+    "dependencies": {
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3"
+    },
+    "devDependencies": {
+        "react-scripts": "^2.1.8"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "reactbuild": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserlist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
+}

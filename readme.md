@@ -19,7 +19,8 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
     - [#3A_SettingUpGitlab](./tutorials/#3A_SettingUpGitlab/readme.md)
     - [#3B_SettingUpGithub](./tutorials/#3B_SettingUpGithub/readme.md)
 
-
+4. Electron Auto Update - The final step of getting your Electron app to update itself
+    - [Place Holder]()
 
 By the end of the tutorial we should have a fully functioning Self Updating React Desktop Application.
 
