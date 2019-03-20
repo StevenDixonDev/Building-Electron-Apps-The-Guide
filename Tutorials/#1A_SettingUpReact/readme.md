@@ -37,7 +37,7 @@ With this we have a fully functioning react app, we should be able to move into 
 
 We are going to ahead and modify the package.json file to make sure we are ready to include Electron. The build script will conflict with Electron's build command so we will rename it. 
 
-```
+```JSON
 {
     "name": "react-electron",
     "version": "0.0.0",
@@ -46,21 +46,21 @@ We are going to ahead and modify the package.json file to make sure we are ready
     "description": "A React-Electron Template",
     "Author": "",
     "dependencies": {
-        "react": "^15.5.4",
-        "react-dom": "^15.5.4"
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3"
     },
     "devDependencies": {
-        "react-scripts": "1.0.7"
+        "react-scripts": "^2.1.8"
     },
     "scripts": {
         "start": "react-scripts start",
         "reactbuild": "react-scripts build",
-        "test": "react-scripts test --env=jsdom"
+        "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
         "extends": "react-app"
-    }.
+    },
     "browserlist": [
         ">0.2%",
         "not dead",
