@@ -18,11 +18,14 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
     [Setting up Electron with Vue](./tutorials/#2B_SettingUpElectronVue/readme.md)  
     [Setting up Electron with Angular](./tutorials/#2C_SettingUpElectronAngular/readme.md)
 
-3. Git based CI and CD  - This tutorial builds on top of everything we have created so far and Sets up Continuous Integration and Continuous Deployment.
-    - [#3A_SettingUpGitlab](./tutorials/#3A_SettingUpGitlab/readme.md)
-    - [#3B_SettingUpGithub](./tutorials/#3B_SettingUpGithub/readme.md)
+3. Setting up Electron Build - Follow this process to get electron built and packaged
+    [Building Electron with React](./tutorials/#3A_SettingUpElectronReactBuild/readme.md)    
 
-4. Electron Auto Update - The final step of getting your Electron app to update itself
+4. Git based CI and CD  - This tutorial builds on top of everything we have created so far and Sets up Continuous Integration and Continuous Deployment.
+    - [Setting Up Gitlab](./tutorials/#4A_SettingUpGitlab/readme.md)
+    - [Setting Up Github](./tutorials/#4B_SettingUpGithub/readme.md)
+
+5. Electron Auto Update - The final step of getting your Electron app to update itself
     - [Place Holder]()
 
 By the end of the tutorial we should have a fully functioning Self Updating React Desktop Application.
