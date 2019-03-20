@@ -45,7 +45,7 @@ We are going to ahead and modify the package.json file to make sure we are ready
     "private": true,
     "homepage": ".",
     "description": "A React-Electron Template",
-    "Author": "",
+    "author": "",
     "dependencies": {
         "react": "^16.8.3",
         "react-dom": "^16.8.3"
