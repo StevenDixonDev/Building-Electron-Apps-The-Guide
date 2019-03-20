@@ -13,8 +13,11 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
     - [Setting up Vue](./tutorials/#1B_SettingUpVue/readme.md)
     - [Setting up Angular](./tutorials/#1C_SettingUpAngular/readme.md)
 
-2. [Setting up Electron](./tutorials/#2_SettingUpElectron/readme.md) - This builds on top of the previously created react app.
-    
+2. Setting up Electron - Follow this process to get electron working properly with your Frame work.
+    [Setting up Electron with React](./tutorials/#2A_SettingUpElectronReact/readme.md)
+    [Setting up Electron with Vue](./tutorials/#2B_SettingUpElectronVue/readme.md)  
+    [Setting up Electron with Angular](./tutorials/#2C_SettingUpElectronAngular/readme.md)
+
 3. Git based CI and CD  - This tutorial builds on top of everything we have created so far and Sets up Continuous Integration and Continuous Deployment.
     - [#3A_SettingUpGitlab](./tutorials/#3A_SettingUpGitlab/readme.md)
     - [#3B_SettingUpGithub](./tutorials/#3B_SettingUpGithub/readme.md)
