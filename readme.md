@@ -9,19 +9,23 @@ This tutorial aims to create and outline the process not only to setup the appli
 In the tutorial folder you will find numbered folders on each topic. Each tutorial builds on the previous. Each Tutorial will have a Read me file with instructions on how to use them, and a template folder containing the files used to build the tutorial.
 
 1. Setting up FrameWorks - Follow the process of Setting up your selected frame work
+
     - [Setting up React](./tutorials/#1A_SettingUpReact/readme.md)
     - [Setting up Vue](./tutorials/#1B_SettingUpVue/readme.md)
     - [Setting up Angular](./tutorials/#1C_SettingUpAngular/readme.md)
 
 2. Setting up Electron - Follow this process to get electron working properly with your Frame work.
-    [Setting up Electron with React](./tutorials/#2A_SettingUpElectronReact/readme.md)
-    [Setting up Electron with Vue](./tutorials/#2B_SettingUpElectronVue/readme.md)  
-    [Setting up Electron with Angular](./tutorials/#2C_SettingUpElectronAngular/readme.md)
+
+    - [Setting up Electron with React](./tutorials/#2A_SettingUpElectronReact/readme.md)
+    - [Setting up Electron with Vue](./tutorials/#2B_SettingUpElectronVue/readme.md)  
+    - [Setting up Electron with Angular](./tutorials/#2C_SettingUpElectronAngular/readme.md)
 
 3. Setting up Electron Build - Follow this process to get electron built and packaged
-    [Building Electron with React](./tutorials/#3A_SettingUpElectronReactBuild/readme.md)    
+
+    - [Building Electron with React](./tutorials/#3A_SettingUpElectronReactBuild/readme.md)    
 
 4. Git based CI and CD  - This tutorial builds on top of everything we have created so far and Sets up Continuous Integration and Continuous Deployment.
+
     - [Setting Up Gitlab](./tutorials/#4A_SettingUpGitlab/readme.md)
     - [Setting Up Github](./tutorials/#4B_SettingUpGithub/readme.md)
 
@@ -42,7 +46,7 @@ Each tutorial will outline the minimum required packages for creating each secti
 ## Things That are not covered
 
 1. Electron Builds for Mac - If someone would like to pitch in and explain this in the tutorial that would be great.
-2. Actually using Electron - There are many tutorial on how to use electron and its API to create applications. for more info on Electron and Using it check out the [QuickStart Guide](https://electronjs.org/docs/tutorial/quick-start) On electrons site.
+2. Actually using Electron - There are many tutorial on how to use electron and its API to create applications. for more info on Electron and Using it check out the [QuickStart Guide](https://electronjs.org/docs/tutorial/quick-start) On electron's site.
 
 ## Things that would be Awesome to Cover
 
