@@ -10,15 +10,15 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
 
 1. Setting up FrameWorks - Follow the process of Setting up your selected frame work
 
-    - [Setting up React](/Tutorials/#1A_SettingUpReact)
-    - [Setting up Vue](/Tutorials/#1B_SettingUpVue)
-    - [Setting up Angular](./Tutorials/#1C_SettingUpAngular)
+    - [Setting up React](/Tutorials/#1A_SettingUpReact/readme.md)
+    - [Setting up Vue](/Tutorials/#1B_SettingUpVue/readme.md)
+    - [Setting up Angular](./Tutorials/#1C_SettingUpAngular/readme.md)
 
 2. Setting up Electron - Follow this process to get electron working properly with your Frame work.
 
-    - [Setting up Electron with React](./tutorials/#2A_SettingUpElectronReact/readme.md)
-    - [Setting up Electron with Vue](./tutorials/#2B_SettingUpElectronVue/readme.md)  
-    - [Setting up Electron with Angular](./tutorials/#2C_SettingUpElectronAngular/readme.md)
+    - [Setting up Electron with React](./Tutorials/#2A_SettingUpElectronReact/readme.md)
+    - [Setting up Electron with Vue](./Tutorials/#2B_SettingUpElectronVue/readme.md)  
+    - [Setting up Electron with Angular](./Tutorials/#2C_SettingUpElectronAngular/readme.md)
 
 3. Setting up Electron Build - Follow this process to get electron built and packaged
 
@@ -26,8 +26,8 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
 
 4. Git based CI and CD  - This tutorial builds on top of everything we have created so far and Sets up Continuous Integration and Continuous Deployment.
 
-    - [Setting Up Gitlab](./tutorials/#4A_SettingUpGitlab/readme.md)
-    - [Setting Up Github](./tutorials/#4B_SettingUpGithub/readme.md)
+    - [Setting Up Gitlab](./Tutorials/#4A_SettingUpGitlab/readme.md)
+    - [Setting Up Github](./Tutorials/#4B_SettingUpGithub/readme.md)
 
 5. Electron Auto Update - The final step of getting your Electron app to update itself
     - [Place Holder]()
