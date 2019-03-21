@@ -73,8 +73,6 @@ We are going to ahead and modify the package.json file to make sure we are ready
 
 Congratulations You now have a react application, crazy easy right? If you want more info on working with react checkout [The react Tutorial](https://reactjs.org/tutorial/tutorial.html) from React.
 
-Alright lets move on to the next Steps [Setting up Electron](../#2A_SettingUpElectronReact/readme.md)
-
-
+Alright lets move on to the next Steps [Setting Up Electron With React](../%232A_SettingUpElectronReact/readme.md)
 
 
