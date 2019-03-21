@@ -10,9 +10,9 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
 
 1. Setting up FrameWorks - Follow the process of Setting up your selected frame work
 
-    - [Setting up React](./tutorials/#1A_SettingUpReact)
-    - [Setting up Vue](./tutorials/#1B_SettingUpVue)
-    - [Setting up Angular](./tutorials/#1C_SettingUpAngular)
+    - [Setting up React](/Tutorials/#1A_SettingUpReact)
+    - [Setting up Vue](/Tutorials/#1B_SettingUpVue)
+    - [Setting up Angular](./Tutorials/#1C_SettingUpAngular)
 
 2. Setting up Electron - Follow this process to get electron working properly with your Frame work.
 
