@@ -109,3 +109,5 @@ All right if you have done everything correctly we should be able to run "npm st
 There is a lot of things to learn with electron, unfortunatly this tutorial does not cover how to use alot of electron just how to set it up but [here](https://gitconnected.com/learn/electron) is really good resource for learning.
 
 Make sure to check the template folder here to make sure you did not miss anything. You should be able to run "npm install" in the folder then "npm start"  to start the app. 
+
+All right our next step is actually getting the app built! check out the tutorial [Setting Up Electron React Build](../%233A_SettingUpElectronReactBuild/)
