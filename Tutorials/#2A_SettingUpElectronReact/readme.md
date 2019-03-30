@@ -36,7 +36,7 @@ createWindow = () =>{
         isDev ? 
         'http://localhost:3000/' : 
         url.format({
-            pathname: path.join(__dirname, '../build/index.html'),
+            pathname: path.join(__dirname, './index.html'),
             protocol: 'file',
             slashes: true
         })
@@ -68,13 +68,11 @@ npm install cross-env --save-dev
 
 ```
 
-[concurrently](https://www.npmjs.com/package/concurrently) allows us to run multiple commands in the command line at the same time, this is needed only during development however because our packaged app will manage this on its own.
+[concurrently](https://www.npmjs.com/package/concurrently) allows us to run multiple commands in the command line at the same time, this is needed only during development because our packaged app will manage this on its own.
 
 [cross-env](https://www.npmjs.com/package/cross-env) Allows us run scripts that set and use environment variables across platforms, this is important for windows enviroments. 
 
 Now we need to update our scripts in our package.json. Make %1000 percent sure the dependencies and devDepencies match otherwise it will lead to wierd issues later on when we are building the app! 
-
-My personal expereince that if react-scripts are in dependencies it lead to errors down the road.
 
 ```json
 {
@@ -111,7 +109,7 @@ My personal expereince that if react-scripts are in dependencies it lead to erro
 
 ```
 
-And Thats it! If you have done everything correctly we should be able to run "npm start" and our electron app will now open!
+And That is it! If you have done everything correctly we should be able to run "npm start" and our electron app will now open!
 
 You will notice that the browserslist was changed from the last tutorial where we set up react. This reflects our target browser.
 

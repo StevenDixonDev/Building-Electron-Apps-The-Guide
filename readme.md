@@ -4,6 +4,11 @@ It is 2019 and Currently Electron has been around for almost 8 years. Unfortunat
 
 This tutorial aims to create and outline the process not only to setup the application and get users started but to setup some of the best features that are available but poorly documented.
 
+Completed Tutorials
+
+- React + Gitlab Private repo
+
+
 ## How to use this Tutorial
 
 In the tutorial folder you will find numbered folders on each topic. Each tutorial builds on the previous. Each Tutorial will have a Read me file with instructions on how to use them, and a template folder containing the files used to build the tutorial.
@@ -26,7 +31,7 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
 
 4. Git based CI and CD  - This tutorial builds on top of everything we have created so far and Sets up Continuous Integration and Continuous Deployment.
 
-    - [Setting Up Gitlab](https://github.com/StevenDixonDev/Electron-Build-Guide/tree/master/Tutorials/%234A_SettingUpGitlab)
+    - [Setting Up Gitlab ](https://github.com/StevenDixonDev/Electron-Build-Guide/tree/master/Tutorials/%234A_SettingUpGitlab)
     - [Setting Up Github](https://github.com/StevenDixonDev/Electron-Build-Guide/tree/master/Tutorials/%234B_SettingUpGithub)
 
 5. Electron Auto Update - The final step of getting your Electron app to update itself
