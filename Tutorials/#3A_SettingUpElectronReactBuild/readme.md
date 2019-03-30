@@ -113,10 +113,10 @@ npm run build
 
 which will build our react app and then package our electron app into our dist folder. 
 
-Rememer to add the dist folder to your .gitignore, otherwise you will be uploading your entire compiled program when ever you push!
+Remember to add the /dist folder to your .gitignore, otherwise you will be uploading your entire compiled program when ever you push!
 
 Congratulations if you have made it this far, the next tutorials will be working on setting up autoupdate for our app: 
 
-[Setting Up Gitlab](../%234A_SettingUpGitlab)
-[Setting Up Github](../%234B_SettingUpGithub)
+[Setting Up Gitlab for Auto Updates](../%234A_SettingUpGitlab)
+[Setting Up Github for Auto Updates](../%234B_SettingUpGithub)
 
