@@ -12,7 +12,6 @@ This tutorial aims to create and outline the process to get CRA (Create React Ap
 
 - CRA + Github + Travis-CI + AWS S3 || some other CI/CD setup
 
-
 ## How to use this Tutorial
 
 In the tutorial folder you will find numbered folders on each topic. Each tutorial builds on the previous. Each Tutorial will have a Read me file with instructions on how to use them, and a template folder containing the files used to build the tutorial.

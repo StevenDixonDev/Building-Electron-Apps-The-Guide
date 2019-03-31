@@ -92,7 +92,8 @@ Now we need to update our scripts in our package.json. Make %1000 percent sure t
         "react-scripts": "^2.1.8",
         "electron": "^4.0.5",
         "cross-env": "^5.2.0",
-        "concurrently": "^3.6.0"
+        "concurrently": "^3.6.0",
+        "wait-on": "^3.2.0"
     },
     "scripts": {
         "start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",

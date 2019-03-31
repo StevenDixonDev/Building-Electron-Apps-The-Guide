@@ -38,6 +38,7 @@ The next thing that needs to be done is update our package.json again to account
         "electron": "^4.0.5",
         "cross-env": "^5.2.0",
         "concurrently": "^3.6.0",
+        "wait-on": "^3.2.0",
         "electron-builder": "^20.38.5"
     },
     "scripts": {
