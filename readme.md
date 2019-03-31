@@ -6,7 +6,7 @@ This tutorial aims to create and outline the process not only to setup the appli
 
 Completed Tutorials
 
-- React + Gitlab Private repo
+- React + Gitlab Public && Private repo
 
 
 ## How to use this Tutorial
