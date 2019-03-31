@@ -1,4 +1,4 @@
-# Electron Build Guide 2019
+# CRA+Electron Build Guide 2019
 
 It is 2019 and Currently Electron has been around for almost 8 years. Unfortunately some of the documentation and tutorials on how to Build, Pack, And handling CI & CD are either lacking or severely out of date.
 
