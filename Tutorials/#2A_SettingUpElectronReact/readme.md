@@ -10,11 +10,11 @@ npm install electron-is-dev --save
 
 ```
 
-These libraries will help us run electron during development. electron-is-dev detects whether or not our app in is development mode, this is usefull because once the app is packaged our electron will need to load our react files from a different place.
+These libraries will help us run electron during development. electron-is-dev detects whether or not our app in is development mode.
 
 Now we need to add our electron entry point to our project. Go ahead and create an electron.js file in the public folder of our react app.
 
-our electron.js file should look as shown below. Most of this information was provided from this article [Here](https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c) However It has been trimmed down to be the bare minimum required to run an electron app.
+our electron.js file should look as shown below. Most of this information was provided from this article [Here](https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c) However It has been trimmed down to be the bare minimum required to run an electron app up and running.
 
 ```JavaScript
 
@@ -68,7 +68,7 @@ npm install cross-env --save-dev
 
 ```
 
-[concurrently](https://www.npmjs.com/package/concurrently) allows us to run multiple commands in the command line at the same time, this is needed only during development because our packaged app will manage this on its own.
+[concurrently](https://www.npmjs.com/package/concurrently) Allows us to run multiple commands in the command line at the same time, this is needed only during development because our packaged app will manage this on its own.
 
 [cross-env](https://www.npmjs.com/package/cross-env) Allows us run scripts that set and use environment variables across platforms, this is important for windows enviroments. 
 
@@ -111,9 +111,9 @@ Now we need to update our scripts in our package.json. Make %1000 percent sure t
 
 And That is it! If you have done everything correctly we should be able to run "npm start" and our electron app will now open!
 
-You will notice that the browserslist was changed from the last tutorial where we set up react. This reflects our target browser.
+You will notice that the browserslist was changed from the last tutorial where we set up react. This is changed to relfect the browser used by Electron.
 
-There is a lot of things to learn with electron, unfortunatly this tutorial does not cover how to use alot of electron just how to set it up but [here](https://gitconnected.com/learn/electron) is really good resource for learning.
+There are a lot of things to learn with electron, unfortunatly this tutorial does not cover how to use electron just how to set it up but [here](https://gitconnected.com/learn/electron) is a really good resource for learning.
 
 Make sure to check the template folder here to make sure you did not miss anything. You should be able to run "npm install" in the folder then "npm start"  to start the app. 
 

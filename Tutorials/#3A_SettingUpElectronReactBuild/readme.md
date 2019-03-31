@@ -2,19 +2,19 @@
 
 We have arrived at an exciting time! we are so close to getting a fully functioning packed app up and running.
 
-The first thing we need to do again is install a package to make our lives easier.
+Now we need to install a package to make our lives easier.
 
 ```
 npm install electron-builder --save-dev
 
 ```
 
-Electron builder is a robust package that lets us compile our app for windows, linux, and mac! Learn more about [Electron Builder Github](https://github.com/electron-userland/electron-builder).
+Electron builder is a robust package that lets us compile our app for windows, linux, and mac! Learn more about [Electron Builder](https://github.com/electron-userland/electron-builder).
 
-The reasons for using this package is because it provides the ability to sign code and auto update, we will get into that a little later in the auto updating tutorial.
+The reasons for using this package is because it provides the ability to sign code and auto update. This tutorial will not cover code signing however.
 
 Please Note By default build command will only generate the installer for current platform and current arch.
-You can specify to build for linux in windows, however this is currently broken, a work around I have found is to have a runner build it for me (ie: Gitlabs runners)
+You can specify to build for linux in windows, however this is currently broken, a work around I have found is to have a runner build it for me (ie: Gitlabs Runner or Heroku)
 
 Mac building requires that the app is compiled on a Mac system. (I have heard that it is possible with something like [Travis-CI](https://travis-ci.org/).
 
@@ -102,7 +102,7 @@ The next thing that needs to be done is update our package.json again to account
 
 There are many build options for Electron builder when it comes to windows, linux, and mac. You can check out some of the Boiler plates provided by Electron builder [Here](https://www.electron.build/#boilerplates) for more options.
 
-For Linux builds the author take with an email must be filled out!
+For Linux builds the author section must be filled out and include an email adress.
 
 If you set everything up propery you should be able to run 
 
@@ -111,12 +111,15 @@ npm run build
 
 ```
 
-which will build our react app and then package our electron app into our dist folder. 
+which will build our react app and then package our electron app into our dist folder.
+
+If you are curious you can navigate to the dist folder to run the app and make sure it works.
 
 Remember to add the /dist folder to your .gitignore, otherwise you will be uploading your entire compiled program when ever you push!
 
-Congratulations if you have made it this far, the next tutorials will be working on setting up autoupdate for our app: 
+Congratulations if you have made it this far, the next tutorials will be working on setting up an atoumated update for the app: 
 
 [Setting Up Gitlab for Auto Updates](../%234A_SettingUpGitlab)
+
 [Setting Up Github for Auto Updates](../%234B_SettingUpGithub)
 

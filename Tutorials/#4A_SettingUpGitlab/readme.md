@@ -2,17 +2,17 @@
 
 So this part of the tutorial is going to setup 2 things:
 
-1. [Getting Gitlab to compile our App](getting-gitlab-to-compile-our-app)
-2. [Getting the information from Gitlab we need to setup our automated updates](getting-the-information)
-3. [Installing the last few libraries and wrapping up](finalizing-everything)
+1. [Getting Gitlab to compile our App](#getting-gitlab-to-compile-our-app)
+2. [Getting the information from Gitlab we need to setup our automated updates](#getting-the-information)
+3. [Installing the last few libraries and wrapping up](#finalizing-everything)
 
 ## Getting Gitlab to compile our App 
 
 Gitlab has entire pages of CI/CD setups for us to go through [here](https://docs.gitlab.com/ee/ci/) and this tutorial is not even gonna scratch the surface of what is possible, but if you follow along we should be okay!
 
-The first thing we are going to want to do is tell gitlab that we want it to run the Gitlab runners. By default github tries to compile your code whenever you push an update to your master branch, Unfortunatly it does not know how to after you add some code. So We need to tell the Runners how to compile our code.  The way we doing that is by providing a .gitlab-ci.yml file in the root of our project project directory.
+The first thing we are going to want to do is tell Gitlab that we want it to run the Gitlab runners. By default github tries to compile your code whenever you push an update to your master branch, Unfortunatly it does not know how to after you add some code. So we need to tell the Runners how to compile our code.  The way we are going to do that is by providing a .gitlab-ci.yml file in the root of our project project directory.
 
-Create a .gitlab-ci.yml file and copy the following code
+Create a .gitlab-ci.yml file and copy the following code.
 
 ```Bash
 variables:
@@ -61,7 +61,7 @@ We need the token so that when we can give access to the electron-updater librar
 
 ## Finalizing Everything
 
-Alright so we have made it this far, we are so close to being done all thats left is this step.
+Alright so you have made it this far, and we are close to being done. All thats left updating our code.
 
 So now we need to update our app with the Auto updater
 
@@ -73,7 +73,7 @@ npm install electron-updater --save
 
 Electron updater is a fancy little library that will allow us to connect to our Git product of choice and pull down our compiled app whenever it detects we created a new tag
 
-Our Package.json should look like this now.
+Our package.json should look like this now.
 
 ```Json {
     "name": "react-electron",
@@ -208,7 +208,7 @@ app.on('activate', ()=>{
 })
 ```
 
-Most tutorials out there give you the wrong link for pulling the update down, the reason is in 2017/2018 Gitlab change the way their website worked due to security reasons.
+Most tutorials out there give you the wrong link for pulling the update down, the reason is in 2017/2018 Gitlab changed the way their website worked due to security reasons. This change seems to have broken the compatibility, and most tutorials have not been updated.
 
 Congratulations fpr getting to the end of the tutorial.
 
