@@ -6,7 +6,7 @@ This tutorial aims to create and outline the process to get CRA (Create React Ap
 
 ## Completed Tutorials
 
--CRA + Gitlab Public && Private repos
+- CRA + Gitlab Public && Private repos
 
 ## Under Contruction
 
