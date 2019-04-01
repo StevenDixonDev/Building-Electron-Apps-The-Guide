@@ -30,7 +30,8 @@ In the tutorial folder you will find numbered folders on each topic. Each tutori
 4. Git based CI and CD  - This tutorial builds on top of everything we have created so far and Sets up Continuous Integration and Continuous Deployment.
 
     - [Setting Up Gitlab ](https://github.com/StevenDixonDev/Electron-Build-Guide/tree/master/Tutorials/%234A_SettingUpGitlab)
-    - [Setting Up Github](https://github.com/StevenDixonDev/Electron-Build-Guide/tree/master/Tutorials/%234B_SettingUpGithub)
+    - [Setting Up Github Public](https://github.com/StevenDixonDev/Electron-Build-Guide/tree/master/Tutorials/%234B_SettingUpGithubPublic)
+    - [Setting Up Github Private](https://github.com/StevenDixonDev/Electron-Build-Guide/tree/master/Tutorials/%234B_SettingUpGithubPrivate)
 
 By the end of the tutorial we should have a fully functioning Self Updating React Desktop Application.
 
