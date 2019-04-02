@@ -6,10 +6,11 @@ This tutorial aims to create and outline the process to get CRA (Create React Ap
 
 - CRA + Gitlab Public && Private repos
 - CRA + Github Private + Travis-CI + AWS S3
+- CRA + Github Public
 
 ## Under Contruction
 
-- CRA + Github Public
+-
 
 ## How to use this Tutorial
 
