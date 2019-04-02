@@ -39,11 +39,12 @@ Now That we have our user we need to create a new bucket in S3 and give our app 
 
 [This](https://docs.aws.amazon.com/AmazonS3/latest/gsg/SigningUpforS3.html) Is a really good tutorial on how to sign up for Amazon S3 and create said bucket.
 
-It is important to note that under the permisions tab and under public access, the following item must be set to FALSE:
+It is important to note that under the permisions tab and under public access, the following items must be set to FALSE:
 
 - Block new public ACLs and uploading public objects (Recommended)
+- Block public and cross-account access if bucket has public policies (Recommended)
 
-Otherwise we will not beable to push our updates to the bucket.
+Otherwise we will not be able to push our updates to the bucket.
 
 Once your bucket is created you will need to need change the buckets permissions. 
 
