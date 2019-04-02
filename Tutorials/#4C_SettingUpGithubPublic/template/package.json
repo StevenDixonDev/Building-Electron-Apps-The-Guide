@@ -1,0 +1,81 @@
+{
+    "name": "react-electron",
+    "version": "0.0.0",
+    "private": true,
+    "repository": "https://github.com/StevenDixonDev/Electron-Github-Build-Template.git",
+    "homepage": ".",
+    "main": "public/electron.js",
+    "description": "A React-Electron Template",
+    "dependencies": {
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "electron-is-dev": "^1.0.1",
+        "electron-log": "^3.0.1",
+        "electron-updater": "^4.0.6"
+    },
+    "devDependencies": {
+        "concurrently": "^3.6.0",
+        "cross-env": "^5.2.0",
+        "electron": "^4.0.5",
+        "react-scripts": "^2.1.8",
+        "wait-on": "^3.2.0",
+        "electron-builder": "^20.38.5"
+    },
+    "scripts": {
+        "start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
+        "dev": "react-scripts start",
+        "reactbuild": "react-scripts build --prod",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "pre-build": "npm run reactbuild && electron-builder --dir",
+        "build": "npm run reactbuild && electron-builder",
+        "pack": "printenv && npm run reactbuild && electron-builder --linux --win --x64 -p always",
+        "travis-mac": "npm run reactbuild && electron-builder --mac -p always"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": "Electron 1.6",
+    "build": {
+        "appId": "com.electron.react",
+        "compression": "normal",
+        "productName": "React-Electron",
+        "directories": {
+            "output": "dist",
+            "buildResources": "build"
+        },
+        "publish": ["github"],
+        "win": {
+            "target": "nsis",
+            "publish": ["github"]
+        },
+        "mac": {
+            "category": "your.app.category.type"
+        },
+        "linux": {
+            "target": [
+                "AppImage"
+            ],
+            "category": "Development"
+        },
+        "dmg": {
+            "contents": [
+                {
+                    "x": 130,
+                    "y": 220
+                },
+                {
+                    "x": 410,
+                    "y": 220,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        }
+    },
+    "author": {
+        "name": "Electron React Build App",
+        "email": "StevenDixonDev@Github.com",
+        "url": "https://github.com/StevenDixonDev/Electron-React-Build-Guide"
+    }
+}
