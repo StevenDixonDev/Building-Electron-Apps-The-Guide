@@ -1,4 +1,4 @@
-# Seting Up Gitlab for Automated Updating Your Electron App
+# Setting Up Gitlab for Automated Updating Your Electron App
 
 So this part of the tutorial is going to setup 2 things:
 
@@ -10,7 +10,7 @@ So this part of the tutorial is going to setup 2 things:
 
 Gitlab has entire pages of CI/CD setups for us to go through [here](https://docs.gitlab.com/ee/ci/) and this tutorial is not even gonna scratch the surface of what is possible, but if you follow along we should be okay!
 
-The first thing we are going to want to do is tell Gitlab that we want it to run the Gitlab runners. By default github tries to compile your code whenever you push an update to your master branch, Unfortunatly it does not know how to after you add some code. So we need to tell the Runners how to compile our code.  The way we are going to do that is by providing a .gitlab-ci.yml file in the root of our project project directory.
+The first thing we are going to want to do is tell Gitlab that we want it to run the Gitlab runners. By default github tries to compile your code whenever you push an update to your master branch, Unfortunately it does not know how to after you add some code. So we need to tell the Runners how to compile our code.  The way we are going to do that is by providing a .gitlab-ci.yml file in the root of our project project directory.
 
 Create a .gitlab-ci.yml file and copy the following code.
 
@@ -43,13 +43,13 @@ To learn about the configuration of this file checkout the [Gitlab documentation
 The image specified above comes with all the programs we need preinstalled in a linux instance, There are many images available to choose from for many different types of projects. 
 The docker image used in this tutorial is provided by [Electron Userland](https://github.com/electron-userland) on github. It is important that we have wine installed in the docker instance so that we can compile our app for windows.
 
-For our scripts we are telling our Docker instance to install the depencies we specified in the package.json file for our app, and then to compile our app just like we would normally.
+For our scripts we are telling our Docker instance to install the dependencies we specified in the package.json file for our app, and then to compile our app just like we would normally.
 
 Now whenever you push to your master branch you should see an icon specifying that Gitlab is compiling your project. ![A compiling picture](https://docs.gitlab.com/ee/ci/examples/laravel_with_gitlab_and_envoy/img/pipelines_page.png)
 
 ## Getting the information
 
-Setting up gitlab is pretty straight forwward all we need to do is located Our projects "Project ID" which is always located underneath the project name on the project details page.
+Setting up gitlab is pretty straight forward all we need to do is located Our projects "Project ID" which is always located underneath the project name on the project details page.
 
 ![Pitcure of project id](https://i.stack.imgur.com/u0K4w.png)
 
@@ -61,7 +61,7 @@ We need the token so that when we can give access to the electron-updater librar
 
 ## Finalizing Everything
 
-Alright so you have made it this far, and we are close to being done. All thats left updating our code.
+Alright so you have made it this far, and we are close to being done. All that's left updating our code.
 
 So now we need to update our app with the Auto updater
 

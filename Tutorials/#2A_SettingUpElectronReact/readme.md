@@ -70,9 +70,9 @@ npm install cross-env --save-dev
 
 [concurrently](https://www.npmjs.com/package/concurrently) Allows us to run multiple commands in the command line at the same time, this is needed only during development because our packaged app will manage this on its own.
 
-[cross-env](https://www.npmjs.com/package/cross-env) Allows us run scripts that set and use environment variables across platforms, this is important for windows enviroments. 
+[cross-env](https://www.npmjs.com/package/cross-env) Allows us run scripts that set and use environment variables across platforms, this is important for windows environments. 
 
-Now we need to update our scripts in our package.json. Make %1000 percent sure the dependencies and devDepencies match otherwise it will lead to wierd issues later on when we are building the app! 
+Now we need to update our scripts in our package.json. Make 00 percent sure the dependencies and devDepencies match otherwise it will lead to weird issues later on when we are building the app! 
 
 ```json
 {
@@ -114,8 +114,8 @@ And That is it! If you have done everything correctly we should be able to run "
 
 You will notice that the browserslist was changed from the last tutorial where we set up react. This is changed to relfect the browser used by Electron.
 
-There are a lot of things to learn with electron, unfortunatly this tutorial does not cover how to use electron just how to set it up but [here](https://gitconnected.com/learn/electron) is a really good resource for learning.
+There are a lot of things to learn with electron, ununfortunatelyhis tutorial does not cover how to use electron just how to set it up but [here](https://gitconnected.com/learn/electron) is a really good resource for learning.
 
 Make sure to check the template folder here to make sure you did not miss anything. You should be able to run "npm install" in the folder then "npm start"  to start the app. 
 
-All right our next step is actually getting the app built! check out the tutorial [Setting Up Electron React Build](../%233A_SettingUpElectronReactBuild/)
+All right our next step is actually getting the app built! check out the tutorial [Setting Up Electron React Build](../#3A_SettingUpElectronReactBuild/)

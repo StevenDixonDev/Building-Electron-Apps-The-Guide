@@ -10,9 +10,9 @@ This section of the tutorial will walk us through:
 
 # AWS S3 setup
 
-AWS is a great tool if you have never used it before. Unfortunatly it does require you to provide a credit card so it may not be accesible.
+AWS is a great tool if you have never used it before. Unfortunately it does require you to provide a credit card so it may not be accessible.
 
-The first thing we are going to want to do is setup an IAM user so that Electron builder can publish to our bucket. We use this user in conjuction with our bubket to make sure no one can write to our bucket with out proper access. 
+The first thing we are going to want to do is setup an IAM user so that Electron builder can publish to our bucket. We use this user in conjunction with our bucket to make sure no one can write to our bucket with out proper access. 
 
 To do this we will need to go to [Amazon AWS IAM](https://console.aws.amazon.com/iam/home?region=us-east-1#/users).
 
@@ -20,7 +20,7 @@ To create our Write User:
 
 Click Add a new user and make sure to name them something appropriate. Since this is our Writer I named mine "S3Write_User".
 
-Under acess type make sure to only select Programmitic Access then click the next button.
+Under access type make sure to only select Programmatic Access then click the next button.
 
 On the permissions page we are going to select to Attach an existing policy directly. 
 
@@ -39,7 +39,7 @@ Now That we have our user we need to create a new bucket in S3 and give our app 
 
 [This](https://docs.aws.amazon.com/AmazonS3/latest/gsg/SigningUpforS3.html) Is a really good tutorial on how to sign up for Amazon S3 and create said bucket.
 
-It is important to note that under the permisions tab and under public access, the following items must be set to FALSE:
+It is important to note that under the permissions tab and under public access, the following items must be set to FALSE:
 
 - Block new public ACLs and uploading public objects (Recommended)
 - Block public and cross-account access if bucket has public policies (Recommended)
@@ -48,7 +48,7 @@ Otherwise we will not be able to push our updates to the bucket.
 
 Once your bucket is created you will need to need change the buckets permissions. 
 
-Now we can create a policy for our bucket, Open the bucket polocies tab then copy and save this code.
+Now we can create a policy for our bucket, Open the bucket policies tab then copy and save this code.
 
 ```Bash
 {
@@ -101,7 +101,7 @@ And now our S3 bucket is ready. In the next step we will setup Travis.
 
 Note: Travis is not the only CI/CD product that can accomplish what we want. [Here](https://github.com/ripienaar/free-for-dev#ci--cd) is a list of different CI/CD products that are free. The only requirement I would look for is that the app can connect to your github. Note that travis is only free for the first 100 builds. I Hope to find a good free version and get a tutorial up on that.
 
-Navigate to [https://travis-ci.com/](https://travis-ci.com/) and sign up, then intergrate Travis with github by selecting your private repo. (Note: that there are two versions of Travis. A .org and .com, the .com can access our private repo.)
+Navigate to [https://travis-ci.com/](https://travis-ci.com/) and sign up, then integrate Travis with github by selecting your private repo. (Note: that there are two versions of Travis. A .org and .com, the .com can access our private repo.)
 
 ## Credentials
 The first thing we need to do is make sure we have our ENV keys setup in our Travis project.
