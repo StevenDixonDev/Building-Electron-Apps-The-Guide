@@ -104,15 +104,19 @@ Note: Travis is not the only CI/CD product that can accomplish what we want. [He
 Navigate to [https://travis-ci.com/](https://travis-ci.com/) and sign up, then integrate Travis with github by selecting your private repo. (Note: that there are two versions of Travis. A .org and .com, the .com can access our private repo.)
 
 ## Credentials
+
 The first thing we need to do is make sure we have our ENV keys setup in our Travis project.
 
 Open your project in travis and select "More Options" from the right hand side menu then from the drop down menu click on "settings".
 
 On the settings page there is a section Titled "Environment Variables". This is where you will enter your AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID from your S3Write_User.
 
-![Creds](https://www.google.com/search?safe=active&biw=1920&bih=937&tbm=isch&sa=1&ei=g8miXPLrN9Dw_AaTkoSYCQ&q=travis+env+variables+aws&oq=travis+env+variables+aws&gs_l=img.3...18666.19832..19967...1.0..0.111.307.4j1......1....1..gws-wiz-img.VBGYzG5RcKU#imgrc=OqLD1SoOOdDrqM:)
+Make sure you have both of these variables defined.
 
-These credentials will by electron builder to upload to our S3 Bucket. 
+- AWS_ACCESS_KEY_ID: YourIAMWriterUserID
+- AWS_SECRET_ACCESS_KEY: YourIAMWriterUserKEY
+
+These credentials will by electron builder to upload to our S3 Bucket.
 
 ## .Travis.yml
 
@@ -130,7 +134,6 @@ matrix:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
         
-
     - os: linux
       language: node_js
       node_js: "10"
@@ -285,7 +288,7 @@ The next thing we will do is update our package.json, we need to tell updater an
 
 ```
 
-You should notice a large difference from the last tutorial in our scripts. Build and Travis-mac are used by travis to compile our program. Prebuild is used when we wanwwwwdwdst our packaged app without uploaded it to S3, and Pack will compile our app and upload it to our S3 bucket.
+You should notice a large difference from the last tutorial in our scripts. Build and Travis-mac are used by travis to compile our program. Prebuild is used when we want to package our app without uploading it to S3, and Pack will compile our app and upload it to our S3 bucket.
 
 Note: to use Pack you will need to set your system ENV variables like so: (Make sure to use your Writer_user info)
 
@@ -360,4 +363,18 @@ app.on('activate', ()=>{
 })
 ```
 
-After Updating your electron.js file everything should be set up and ready to go.
+After Updating our electron.js file everything should be set up and ready to go.
+
+AutoUpdater.logging is not enabled by default, this code will output a log file in the folder our app is installed in. This is great to check if our app is actually loading.
+
+Now whenever we push to master travis will compile our project and upload it to our S3 Bucket.
+
+# FAQ
+
+Q. I am getting a 403 error in my log file when my app goes to update. 
+
+A. This will be caused by incorrect settings in your S3 bucket, verify all settings are correct.
+
+Q. I am getting an error in travis when the scripts are trying to upload to my S3 bucket.
+
+A. This error is caused by credential mismatch. Verify the environmental variable are set correctly. Then verify your S3 bucket policies reflect the Write user you created.
