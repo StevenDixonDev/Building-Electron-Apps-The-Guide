@@ -1,6 +1,6 @@
 # Setting up React Electron app Build
 
-We have arrived at an exciting time! we are so close to getting a fully functioning packed app up and running.
+For this section we will be setting up our project to be able to compile our React code and Package everything into an Electron app.
 
 Now we need to install a package to make our lives easier.
 
@@ -118,9 +118,10 @@ If you are curious you can navigate to the dist folder to run the app and make s
 
 Remember to add the /dist folder to your .gitignore, otherwise you will be uploading your entire compiled program when ever you push!
 
-Congratulations if you have made it this far, the next tutorials will be working on setting up an atoumated update for the app: 
+Congratulations if you have made it this far, the next tutorials will be working on setting up an atoumated update for the app using git: 
 
 [Setting Up Gitlab for Auto Updates](../%234A_SettingUpGitlab)
 
-[Setting Up Github for Auto Updates](../%234B_SettingUpGithub)
+[Setting Up Github Private Repo for Auto Updates](../%234B_SettingUpGithubPrivate)
 
+[Setting Up Github Public Repo for Auto Updates](../%234C_SettingUpGithubPublic)

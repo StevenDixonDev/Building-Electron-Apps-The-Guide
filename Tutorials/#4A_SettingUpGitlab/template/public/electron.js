@@ -4,12 +4,11 @@ const path = require('path')
 const url = require('url');
 const { autoUpdater } = require("electron-updater");
 
-autoUpdater.requestHeaders = { "PRIVATE-TOKEN": "the access token we created above" };
+//This will log our update info where our app installed so that we can debug the app if we need to.
+autoUpdater.logger = require("electron-log");
+autoUpdater.logger.transports.file.level = "info"
 
-autoUpdater.setFeedURL({
-    provider: "generic",
-    url: "http://gitlab.com/api/v4/projects/your project id from above/jobs/artifacts/master/raw/dist/?job=build"
-});
+app.getVersion(); //list version number
 
 autoUpdater.checkForUpdatesAndNotify();
 
@@ -46,3 +45,4 @@ app.on('window-all-closed', ()=> app.quit())
 
 app.on('activate', ()=>{
     if(pages.mainWindow === null) createWindow();
+})

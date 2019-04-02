@@ -1,16 +1,15 @@
 # CRA+Electron Build Guide 2019
 
-It is 2019 and Currently Electron has been around for almost 8 years. Unfortunately some of the documentation and tutorials on how to Build, Pack, And handling CI & CD are either lacking or severely out of date.
-
-This tutorial aims to create and outline the process to get CRA (Create React App), Electron, and Automated updates from Git to work flawlessly.
+This tutorial aims to create and outline the process to get CRA (Create React App), Electron, and Automated updates from Git or other webservices to work flawlessly.
 
 ## Completed Tutorials
 
 - CRA + Gitlab Public && Private repos
+- CRA + Github Private + Travis-CI + AWS S3
 
 ## Under Contruction
 
-- CRA + Github + Travis-CI + AWS S3 || some other CI/CD setup
+- CRA + Github Public
 
 ## How to use this Tutorial
 

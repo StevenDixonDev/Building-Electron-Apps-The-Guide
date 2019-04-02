@@ -2,7 +2,7 @@
 
 At this point we should already have a react app created and ready to go based on the previous tutorial.
 
-The first thing we need to do is add Electron to our app but we have some other depencies we need to install as well
+The first thing we need to do is add Electron to our app, but we have some other dependencies we need to install as well
 
 ```
 npm install electron --save-dev

@@ -1,82 +1,22 @@
-# Do not Follow this section it is under construction
-
 # Setting up Private Github Repository for updates
 
-Disclaimer: This tutorial is much longer than the public version. As of 2019 You cannot update from a private repo anymore due to file size constraints, you will have to use S3 or something  simalar.
+Disclaimer: This tutorial is much longer than the github public version, we sacrifice time for privacy :). As of 2019 You cannot update from a private repo directly from Electron Updater anymore due to file size constraints, so will be using Amazon S3 to host our files.
 
-This section will walk you through:
+This section of the tutorial will walk us through:
 
-1. [Getting Github setup](#github-setup)
-2. [Getting Amazon S3 Setup]()
-3. [Getting Travis setup]()
-4. [Adding Code and Publishing]()
-
-
-# Github Setup
-
-This part will be short, the only thing we need to do is get a Personal Access Token.
-
-Aside: technically you do not need to do this if you are not going to keep your releases on github
-
-In order to do this you can follow the [github documentation](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line). The process is super simple, however make sure to save that token somewhere because if you lose it you will have to regenerate it.
-
-Make sure the token has the repo scope/permissions!
-
-And thats it for this part.
+1. [Getting Amazon S3 Setup](#aWS-s3-setup)
+2. [Getting Travis setup](#getting-travis-setup)
+3. [Adding Code and Publishing](#adding-code-and-publishing)
 
 # AWS S3 setup
 
 AWS is a great tool if you have never used it before. Unfortunatly it does require you to provide a credit card so it may not be accesible.
 
-What we want to do is create a new bucket in S3 and give our app the rights to edit the bucket. [This](https://docs.aws.amazon.com/AmazonS3/latest/gsg/SigningUpforS3.html) Is a really good tutorial on how to sign up for Amazon S3 and create said bucket.
-
-Once your bucket is created you will need to need change the buckets permissions. 
-
-Verify that on the main permissions page that: 
-
-1. Block new public ACLs and uploading public objects (Recommended) is set to False
-2. Block new public bucket policies (Recommended) is set to False
-
-Now we can create a policy for our bucket, Open the bucket polocies tab then copy and save this code. make sure to replace Yourbucketname with your actual buckets name.
-
-```Bash
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowAppS3Releases",s
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:AbortMultipartUpload",
-                "s3:GetObject",
-                "s3:GetObjectAcl",
-                "s3:GetObjectVersion",
-                "s3:ListMultipartUploadParts",
-                "s3:PutObject",
-                "s3:PutObjectAcl"
-            ],
-            "Resource": "arn:aws:s3:::Yourbucketname/*"
-        },
-        {
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:ListBucket",
-                "s3:ListBucketMultipartUploads"
-            ],
-            "Resource": "arn:aws:s3:::Yourbucketname"
-        }
-    ]
-}
-
-```
-
-At this point our bucket is fully setup but now we need to give Electron builder access to write and Auto Updater access to read from the bucket. To do this we need to create 2 IAM users, one to read and one to write. 
+The first thing we are going to want to do is setup an IAM user so that Electron builder can publish to our bucket. We use this user in conjuction with our bubket to make sure no one can write to our bucket with out proper access. 
 
 To do this we will need to go to [Amazon AWS IAM](https://console.aws.amazon.com/iam/home?region=us-east-1#/users).
 
-First we will create our Write User.
+To create our Write User: 
 
 Click Add a new user and make sure to name them something appropriate. Since this is our Writer I named mine "S3Write_User".
 
@@ -92,24 +32,73 @@ On this page review the info you provided and click the "Create User" button
 
 You should now be on the final screen now, Please copy down the Access key ID and the Secret access key, if you lose them you will need to create a new user or regenerate the key.
 
-Now we need to create our Read user.
+You will also want to copy down the User ARN as well as we will need it in our next step.
 
-We will follow the same steps but change a couple things. 
 
-firstly I Named this user S3Read_user.
+Now That we have our user we need to create a new bucket in S3 and give our app the rights to edit the bucket. 
 
-Then on the permisions page we will attach the existing policy "AmazonS3ReadOnlyAccess".
+[This](https://docs.aws.amazon.com/AmazonS3/latest/gsg/SigningUpforS3.html) Is a really good tutorial on how to sign up for Amazon S3 and create said bucket.
 
-Finish creating the user and copy down the Access key ID and the Secret access key.
+It is important to note that under the permisions tab and under public access, the following item must be set to FALSE:
+
+- Block new public ACLs and uploading public objects (Recommended)
+
+Otherwise we will not beable to push our updates to the bucket.
+
+Once your bucket is created you will need to need change the buckets permissions. 
+
+Now we can create a policy for our bucket, Open the bucket polocies tab then copy and save this code.
+
+```Bash
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::000006919802:user/S3Write_User"
+            },
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:ListMultipartUploadParts",
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::YourBucketNameHere/*"
+        },
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": "arn:aws:s3:::YourBucketNameHere/*"
+        },
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "arn:aws:s3:::YourBucketNameHere"
+        }
+    ]
+}
+
+```
+
+Make sure to Change the ARN and the instances of YourBucketNameHere in the code above.
 
 And now our S3 bucket is ready. In the next step we will setup Travis.
 
 
-
-
 # Getting Travis setup
 
-Note: Travis is not the only CI/CD product that can accomplish what we want. [Here](https://github.com/ripienaar/free-for-dev#ci--cd) is a list of different CI/CD products that are free. The only requirement I would look for is that the app can connect to your github.
+Note: Travis is not the only CI/CD product that can accomplish what we want. [Here](https://github.com/ripienaar/free-for-dev#ci--cd) is a list of different CI/CD products that are free. The only requirement I would look for is that the app can connect to your github. Note that travis is only free for the first 100 builds. I Hope to find a good free version and get a tutorial up on that.
 
 Navigate to [https://travis-ci.com/](https://travis-ci.com/) and sign up, then intergrate Travis with github by selecting your private repo. (Note: that there are two versions of Travis. A .org and .com, the .com can access our private repo.)
 
@@ -120,6 +109,8 @@ Open your project in travis and select "More Options" from the right hand side m
 
 On the settings page there is a section Titled "Environment Variables". This is where you will enter your AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID from your S3Write_User.
 
+![Creds](https://www.google.com/search?safe=active&biw=1920&bih=937&tbm=isch&sa=1&ei=g8miXPLrN9Dw_AaTkoSYCQ&q=travis+env+variables+aws&oq=travis+env+variables+aws&gs_l=img.3...18666.19832..19967...1.0..0.111.307.4j1......1....1..gws-wiz-img.VBGYzG5RcKU#imgrc=OqLD1SoOOdDrqM:)
+
 These credentials will by electron builder to upload to our S3 Bucket. 
 
 ## .Travis.yml
@@ -127,6 +118,7 @@ These credentials will by electron builder to upload to our S3 Bucket.
 now we need to create a .travis.yml file in the root of our project. Then copy the following code into the file.
 
 ```Bash
+
 matrix:
   include:
     - os: osx
@@ -136,12 +128,15 @@ matrix:
       env:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
+        
 
     - os: linux
       language: node_js
       node_js: "10"
       services: docker
-      language: generic
+      env:
+        - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 cache:  
   directories:
@@ -226,7 +221,7 @@ The next thing we will do is update our package.json, we need to tell updater an
         "eject": "react-scripts eject",
         "pre-build": "npm run reactbuild && electron-builder --dir",
         "build": "npm run reactbuild && electron-builder",
-        "pack": "npm run reactbuild && electron-builder -w --x64 -p always",
+        "pack": "printenv && npm run reactbuild && electron-builder --linux --win --x64 -p always",
         "travis-mac": "npm run reactbuild && electron-builder --mac -p always"
     },
     "eslintConfig": {
@@ -289,7 +284,7 @@ The next thing we will do is update our package.json, we need to tell updater an
 
 ```
 
-You should notice a large difference from the last tutorial in our scripts. Build and Travis-mac are used by travis to compile our program. Prebuild is used when we want to test our packaged app without uploaded it to S3, and Pack will compile our app and upload it to our S3 bucket.
+You should notice a large difference from the last tutorial in our scripts. Build and Travis-mac are used by travis to compile our program. Prebuild is used when we wanwwwwdwdst our packaged app without uploaded it to S3, and Pack will compile our app and upload it to our S3 bucket.
 
 Note: to use Pack you will need to set your system ENV variables like so: (Make sure to use your Writer_user info)
 
@@ -325,12 +320,6 @@ autoUpdater.logger = require("electron-log");
 autoUpdater.logger.transports.file.level = "info"
 
 app.getVersion(); //list version number
-
-//
-autoUpdater.requestHeaders = { 
-    "AWS_ACCESS_KEY_ID": "Read Users Secret ID",
-    "AWS_SECRET_ACCESS_KEY": "Read User secret key" 
-};
 
 autoUpdater.checkForUpdatesAndNotify();
 
@@ -369,3 +358,5 @@ app.on('activate', ()=>{
     if(pages.mainWindow === null) createWindow();
 })
 ```
+
+After Updating your electron.js file everything should be set up and ready to go.
